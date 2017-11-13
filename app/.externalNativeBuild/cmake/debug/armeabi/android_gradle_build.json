@@ -1,0 +1,102 @@
+
+{
+	"buildFiles" : [ "F:/develop/FFmpegDemo/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"F:\\develop\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build F:\\develop\\FFmpegDemo\\app\\.externalNativeBuild\\cmake\\debug\\armeabi --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"avcodec-56-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "avcodec-56",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libavcodec-56.so",
+			"toolchain" : "4189785857"
+		},
+		"avdevice-56-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "avdevice-56",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libavdevice-56.so",
+			"toolchain" : "4189785857"
+		},
+		"avfilter-5-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "avfilter-5",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libavfilter-5.so",
+			"toolchain" : "4189785857"
+		},
+		"avformat-56-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "avformat-56",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libavformat-56.so",
+			"toolchain" : "4189785857"
+		},
+		"avutil-54-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "avutil-54",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libavutil-54.so",
+			"toolchain" : "4189785857"
+		},
+		"native-lib-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "native-lib",
+			"buildCommand" : "F:\\develop\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build F:\\develop\\FFmpegDemo\\app\\.externalNativeBuild\\cmake\\debug\\armeabi --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv5te-none-linux-androideabi --gcc-toolchain=F:/develop/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64 --sysroot=F:/develop/sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -I..\\..\\..\\..\\libs\\include -isystem F:\\develop\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem F:\\develop\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\armeabi\\include -isystem F:\\develop\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -isystem F:/develop/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -D__ANDROID_API__=15 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv5te -mtune=xscale -msoft-float -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "F:/develop/FFmpegDemo/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "F:/develop/FFmpegDemo/app/.externalNativeBuild/cmake/debug/armeabi"
+				}
+			],
+			"output" : "F:/develop/FFmpegDemo/app/build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so",
+			"toolchain" : "4189785857"
+		},
+		"postproc-53-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "postproc-53",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libpostproc-53.so",
+			"toolchain" : "4189785857"
+		},
+		"swresample-1-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "swresample-1",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libswresample-1.so",
+			"toolchain" : "4189785857"
+		},
+		"swscale-3-Debug-armeabi" : 
+		{
+			"abi" : "armeabi",
+			"artifactName" : "swscale-3",
+			"buildType" : "debug",
+			"output" : "../../../../libs/armeabi/libswscale-3.so",
+			"toolchain" : "4189785857"
+		}
+	},
+	"toolchains" : 
+	{
+		"4189785857" : 
+		{
+			"cCompilerExecutable" : "F:/develop/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "F:/develop/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

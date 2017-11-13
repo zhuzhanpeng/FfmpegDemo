@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dongnao.ffmpegdemo.MainActivity">
+   <SurfaceView
+       android:id="@+id/surfaceView"
+       android:layout_width="match_parent"
+       android:layout_weight="1"
+       android:layout_height="200px" />
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:onClick="playVideo"
+       android:text="播放视频"
+       />
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:onClick="playAudio"
+       android:text="播放音频"
+       />
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:onClick="syncronize"
+       android:text="音视频同步"
+       />
+
+</LinearLayout>
