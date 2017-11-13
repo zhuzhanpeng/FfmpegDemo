@@ -199,7 +199,7 @@ android-lib:FILEPATH=F:/develop/sdk/ndk-bundle/platforms/android-15/arch-arm/usr
 log-lib:FILEPATH=F:/develop/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/liblog.so
 
 //Dependencies for the target
-native-lib_LIB_DEPENDS:STATIC=general;avfilter-5;general;avcodec-56;general;avdevice-56;general;avformat-56;general;avutil-54;general;postproc-53;general;swresample-1;general;swscale-3;general;F:/develop/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/liblog.so;general;F:/develop/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/libandroid.so;general;android;
+native-lib_LIB_DEPENDS:STATIC=general;avfilter-5;general;avcodec-56;general;avdevice-56;general;avformat-56;general;avutil-54;general;postproc-53;general;swresample-1;general;swscale-3;general;F:/develop/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/liblog.so;general;F:/develop/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/libandroid.so;general;android;general;OpenSLES;
 
 
 ########################
