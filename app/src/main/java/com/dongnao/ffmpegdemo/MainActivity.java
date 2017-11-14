@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     public native void playNativeVideo(String path, Surface surface);
     public native void playNativeAudio(String path);
     public native void nativeSyncronize(String path);
+    public native void nativeTranscoding(String path);
     public void playVideo(View view) {
         String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
         Toast.makeText(this,""+input,Toast.LENGTH_SHORT).show();
@@ -40,6 +41,11 @@ public class MainActivity extends Activity {
     public void syncronize(View view){
         String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
         nativeSyncronize(input);
+    }
+
+    public void transcoding(View view){
+        String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
+        nativeTranscoding(input);
     }
 
 }

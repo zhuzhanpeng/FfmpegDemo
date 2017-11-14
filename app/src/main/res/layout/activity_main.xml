@@ -29,5 +29,10 @@
        android:onClick="syncronize"
        android:text="音视频同步"
        />
-
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:onClick="transcoding"
+       android:text="转码视频"
+       />
 </LinearLayout>

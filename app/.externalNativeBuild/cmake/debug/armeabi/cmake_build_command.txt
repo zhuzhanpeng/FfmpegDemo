@@ -1,14 +1,14 @@
-Executable : F:\develop\sdk\cmake\3.6.4111459\bin\cmake.exe
+Executable : D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\cmake.exe
 arguments : 
--HF:\develop\FFmpegDemo\app
--BF:\develop\FFmpegDemo\app\.externalNativeBuild\cmake\debug\armeabi
+-HD:\srcCategory\ndk\FfmpegDemo\app
+-BD:\srcCategory\ndk\FfmpegDemo\app\.externalNativeBuild\cmake\debug\armeabi
 -GAndroid Gradle - Ninja
 -DANDROID_ABI=armeabi
--DANDROID_NDK=F:\develop\sdk\ndk-bundle
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=F:\develop\FFmpegDemo\app\build\intermediates\cmake\debug\obj\armeabi
+-DANDROID_NDK=D:\InstalledSoft\sdk\ndk-bundle
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\cmake\debug\obj\armeabi
 -DCMAKE_BUILD_TYPE=Debug
--DCMAKE_MAKE_PROGRAM=F:\develop\sdk\cmake\3.6.4111459\bin\ninja.exe
--DCMAKE_TOOLCHAIN_FILE=F:\develop\sdk\ndk-bundle\build\cmake\android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe
+-DCMAKE_TOOLCHAIN_FILE=D:\InstalledSoft\sdk\ndk-bundle\build\cmake\android.toolchain.cmake
 -DANDROID_PLATFORM=android-15
 -DCMAKE_CXX_FLAGS=-frtti -fexceptions
 jvmArgs : 

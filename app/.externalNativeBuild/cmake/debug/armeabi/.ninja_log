@@ -1,7 +1,8 @@
 # ninja log v5
-1	473	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	3c005c259ebdf091
-7	275	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	6568e32a3a0a9dc7
-6	517	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	3c005c259ebdf091
-517	624	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	259d6af503aafcfb
-7	281	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	6568e32a3a0a9dc7
-281	377	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	259d6af503aafcfb
+1	195	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	8f3b9933798d43b4
+2	347	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6ff9405151b25c34
+348	509	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	9a454bbfa8067378
+3	327	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6ff9405151b25c34
+327	444	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	9a454bbfa8067378
+2	308	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6ff9405151b25c34
+309	508	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	9a454bbfa8067378
