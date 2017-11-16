@@ -6,6 +6,7 @@
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_Android.h>
 #include "FFmpegMusic.h"
+#include "SplitVideo.h"
 
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
@@ -36,7 +37,6 @@ extern "C" {
 //像素处理
 #include "libswscale/swscale.h"
 #include <libavutil/timestamp.h>
-#include <libavutil/mathematics.h>
 #endif
 // 当喇叭播放完声音时回调此方法
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
@@ -56,11 +56,11 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
  */
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeVideo
         (JNIEnv *env, jobject instance, jstring path_, jobject surface) {
-    const char *path = env->GetStringUTFChars(path_, 0);
+    const char *input = env->GetStringUTFChars(path_, 0);
     ANativeWindow *nativeWindow = ANativeWindow_fromSurface(env, surface);
 
     av_register_all();
-    char *input = "/sdcard/input.mp4";
+//    char *input = "/sdcard/input.mp4";
     AVFormatContext *formatCtx = avformat_alloc_context();
     if (avformat_open_input(&formatCtx, input, NULL, NULL) < 0) {
         LOGE("avformat_open_input失败");
@@ -128,7 +128,7 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeVideo
     av_frame_free(&yuvFrame);
     av_frame_free(&frame);
     avformat_free_context(formatCtx);
-    env->ReleaseStringUTFChars(path_, path);
+    env->ReleaseStringUTFChars(path_, input);
 }
 
 /*
@@ -226,8 +226,11 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
     const char* path=env->GetStringUTFChars(path_,NULL);
 
 
-    const char *in_filename="/sdcard/input.mp4";
-    const char *out_filename="/sdcard/out.flv";
+//    const char *in_filename="/sdcard/input.mp4";
+    /*const char *in_filename=
+            "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";*/
+    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
+    const char *out_filename="/sdcard/m3u8.flv";
     AVOutputFormat *ofmt = NULL;
     //Input AVFormatContext and Output AVFormatContext
     AVFormatContext *ifmt_ctx = NULL, *ofmt_ctx = NULL;
@@ -237,20 +240,21 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
     int frame_index=0;
 
     av_register_all();
+    avformat_network_init();
     //Input
     if ((ret = avformat_open_input(&ifmt_ctx, in_filename, 0, 0)) < 0) {
-        printf( "Could not open input file.");
+        LOGE("Could not open input file.");
         goto end;
     }
     if ((ret = avformat_find_stream_info(ifmt_ctx, 0)) < 0) {
-        printf( "Failed to retrieve input stream information");
+        LOGE( "Failed to retrieve input stream information");
         goto end;
     }
     av_dump_format(ifmt_ctx, 0, in_filename, 0);
     //Output
     avformat_alloc_output_context2(&ofmt_ctx, NULL, NULL, out_filename);
     if (!ofmt_ctx) {
-        printf( "Could not create output context\n");
+        LOGE( "Could not create output context\n");
         ret = AVERROR_UNKNOWN;
         goto end;
     }
@@ -260,13 +264,13 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
         AVStream *in_stream = ifmt_ctx->streams[i];
         AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
         if (!out_stream) {
-            printf( "Failed allocating output stream\n");
+            LOGE( "Failed allocating output stream\n");
             ret = AVERROR_UNKNOWN;
             goto end;
         }
         //Copy the settings of AVCodecContext
         if (avcodec_copy_context(out_stream->codec, in_stream->codec) < 0) {
-            printf( "Failed to copy context from input to output stream codec context\n");
+            LOGE( "Failed to copy context from input to output stream codec context\n");
             goto end;
         }
         out_stream->codec->codec_tag = 0;
@@ -279,13 +283,13 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
     if (!(ofmt->flags & AVFMT_NOFILE)) {
         ret = avio_open(&ofmt_ctx->pb, out_filename, AVIO_FLAG_WRITE);
         if (ret < 0) {
-            printf( "Could not open output file '%s'", out_filename);
+            LOGE( "Could not open output file '%s'", out_filename);
             goto end;
         }
     }
     //Write file header
     if (avformat_write_header(ofmt_ctx, NULL) < 0) {
-        printf( "Error occurred when opening output file\n");
+        LOGE( "Error occurred when opening output file\n");
         goto end;
     }
 
@@ -305,10 +309,10 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
         pkt.pos = -1;
         //Write
         if (av_interleaved_write_frame(ofmt_ctx, &pkt) < 0) {
-            printf( "Error muxing packet\n");
+            LOGE( "Error muxing packet\n");
             break;
         }
-        printf("Write %8d frames to output file\n",frame_index);
+        LOGE("Write %8d frames to output file\n",frame_index);
         av_free_packet(&pkt);
         frame_index++;
     }
@@ -323,7 +327,11 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
 
     env->ReleaseStringUTFChars(path_,path);
 }
-
+JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSplitVideo
+        (JNIEnv *env, jobject instance, jstring path_) {
+    LOGE("nativeSplitVideo");
+    executeSplit(20);
+}
 
 #ifdef __cplusplus
 }

@@ -3,6 +3,7 @@ add_library( native-lib
              SHARED
              src/main/cpp/native-lib.cpp
              src/main/cpp/FFmpegMusic.cpp
+             src/main/cpp/SplitVideo.cpp
               )
 
 find_library( log-lib

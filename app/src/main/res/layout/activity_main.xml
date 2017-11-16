@@ -10,7 +10,7 @@
        android:id="@+id/surfaceView"
        android:layout_width="match_parent"
        android:layout_weight="1"
-       android:layout_height="200px" />
+       android:layout_height="0dp" />
    <Button
        android:layout_width="match_parent"
        android:layout_height="50dp"
@@ -34,5 +34,11 @@
        android:layout_height="50dp"
        android:onClick="transcoding"
        android:text="转码视频"
+       />
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:onClick="splitVideo"
+       android:text="拆分视频"
        />
 </LinearLayout>
