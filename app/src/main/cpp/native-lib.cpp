@@ -329,7 +329,6 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
 }
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSplitVideo
         (JNIEnv *env, jobject instance, jstring path_) {
-    LOGE("nativeSplitVideo");
     executeSplitOneClip(60,100);
 }
 

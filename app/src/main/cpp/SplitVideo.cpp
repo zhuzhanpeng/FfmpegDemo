@@ -220,7 +220,8 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
     avformat_network_init();
     AVFormatContext *ifmtCtx = avformat_alloc_context();
     AVFormatContext *ofmtCtx;
-    string inputFileName = "/sdcard/input.mp4";
+//    string inputFileName = "/sdcard/input.mp4";
+    string inputFileName = "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";
     string outputFileName = "/sdcard/ts.mp4";
     string suffixName = ".mp4";
     AVPacket readPkt;
@@ -244,11 +245,9 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
     int den = ifmtCtx->streams[video_index]->r_frame_rate.den;//1
     int num = ifmtCtx->streams[video_index]->r_frame_rate.num;//25
     float fps = (float) num / den;
-    LOGE("帧率%f", fps);
-    start_frame_pos = fps * startSecond;
+    start_frame_pos = fps * startSecond-10;
     end_frame_pos = fps * endSecond;
-    LOGE("start_frame_pos 索引%lld", start_frame_pos);
-    LOGE("end_frame_pos 索引%lld", end_frame_pos);
+
     string save_name;
     save_name = outputFileName.substr(0, outputFileName.find_last_of("."));
     string temp_name = save_name + "0" + suffixName;
@@ -279,14 +278,12 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
                 (start_keyFrame_pos == -1)
                     ) {
                 start_keyFrame_pos = frame_index;
-                LOGE("start_keyFrame_pos 索引%lld", start_keyFrame_pos);
             }
             if ((readPkt.flags & AV_PKT_FLAG_KEY) &&
                 (frameCount >= end_frame_pos) &&
                 (end_keyFrame_pos == -1)
                     ) {
                 end_keyFrame_pos = frame_index;
-                LOGE("end_keyFrame_pos 索引%lld", end_keyFrame_pos);
             }
 
         }
@@ -313,10 +310,10 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
     }*/
 
     frame_index = 0;
-    int64_t lastPts = 0;
+    /*int64_t lastPts = 0;
     int64_t lastDts = 0;
     int64_t prePts = 0;
-    int64_t preDts = 0;
+    int64_t preDts = 0;*/
 
     int64_t write_frame_total=0;
     while (1) {
@@ -327,16 +324,6 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
         }
         av_packet_rescale_ts(&readPkt, ifmtCtx->streams[readPkt.stream_index]->time_base,
                              ofmtCtx->streams[readPkt.stream_index]->time_base);
-
-        prePts = readPkt.pts;
-        preDts = readPkt.dts;
-       /* readPkt.pts -= lastPts;
-        readPkt.dts -= lastDts;*/
-
-        if (readPkt.pts < readPkt.dts) {
-            readPkt.pts = readPkt.dts + 1;
-        }
-
         //为分割点处的关键帧要进行拷贝
         /*if(readPkt.flags & AV_PKT_FLAG_KEY && frame_index == start_keyFrame_pos){
             lastDts = preDts;
