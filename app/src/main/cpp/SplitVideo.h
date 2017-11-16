@@ -10,3 +10,6 @@ extern "C" {
 #include <libavutil/timestamp.h>
 };
 bool executeSplit(unsigned int splitSeconds);
+//param startSecond 开始时间 单位秒
+//param endSecond 结束时间
+bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond);
