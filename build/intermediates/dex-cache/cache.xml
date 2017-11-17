@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-integration\1.3\5de0c73fef18917cd85d0ab70bb23818685e4dfd\hamcrest-integration-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-integration-1.3_216c8188a5c24af48caa3d37e3af379c38dd55cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\259b344c50181e9f566b89f1d68fd12f34078a46\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="905f3e63973d47fedf2d945fa31d8c0f0c98816e">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_7f1b3c6a6d46c9b9ca405183d6d43ee05a577a4e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\javax.annotation-api-1.2_25488854ffb7f82e787888bf35d4875b184abfa1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\com.squareup\javawriter\2.1.1\67ff45d9ae02e583d0f9b3432a5ebbe05c30c966\javawriter-2.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\javawriter-2.1.1_f72b97280b2715e270be777ce5ce5bff321bda60.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\8a263b2b289f7fd04c7bb5dff5332c730fd68a8f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="796f9229948e907471c5595fbe94655ccf03ff73">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_7d2654bc2835ba4e9d7a75ced1f29f9a2c0629db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\jsr305-2.0.1_48c28a47b1f841e62d199711efd77f734bf272a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\0d9a243ec2749c1c6db546aca8d230dc33ec1317\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d115b0e9e1501135fe91254ba884fcbd83d374c0">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_97518d31f997007a2986be80af2ef52308b0ad79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\259b344c50181e9f566b89f1d68fd12f34078a46\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="905f3e63973d47fedf2d945fa31d8c0f0c98816e">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_7f1b3c6a6d46c9b9ca405183d6d43ee05a577a4e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-core-1.3_d191c47e9397b15a471addc94e8a1aa4c4e5eea6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-library\1.3\4785a3c21320980282f9f33d0d1264a69040538f\hamcrest-library-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-library-1.3_2de97db6cb84f8e0d5f589fa94143b9b784d1710.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\5061010cb77a275fc374759daa170df9777e645c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7e11799d8a26bfa5d48acafe012ee5545b9bf468">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_5a4d55196fe76168beb6d6c687c2342e3d8f29fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\0d9a243ec2749c1c6db546aca8d230dc33ec1317\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d115b0e9e1501135fe91254ba884fcbd83d374c0">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_97518d31f997007a2986be80af2ef52308b0ad79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\ecef1bb3d77848b1003b0a6f72753d1fa0425eed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a890ee8445927649d9ed50f625a315d8758688be">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_18633c5daffa6be146cb8eca88c95b4479fe0c97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-core-1.3_d191c47e9397b15a471addc94e8a1aa4c4e5eea6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-library\1.3\4785a3c21320980282f9f33d0d1264a69040538f\hamcrest-library-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-library-1.3_2de97db6cb84f8e0d5f589fa94143b9b784d1710.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\junit-4.12_ca783cc14ced9bff691b79cf5092600750426a44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\ecef1bb3d77848b1003b0a6f72753d1fa0425eed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a890ee8445927649d9ed50f625a315d8758688be">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_18633c5daffa6be146cb8eca88c95b4479fe0c97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\5061010cb77a275fc374759daa170df9777e645c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7e11799d8a26bfa5d48acafe012ee5545b9bf468">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_5a4d55196fe76168beb6d6c687c2342e3d8f29fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\javax.inject-1_80d8b8106aa1dc0d5a84dd27f000e63b9d5d8cab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-integration\1.3\5de0c73fef18917cd85d0ab70bb23818685e4dfd\hamcrest-integration-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-integration-1.3_216c8188a5c24af48caa3d37e3af379c38dd55cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\javax.annotation-api-1.2_25488854ffb7f82e787888bf35d4875b184abfa1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\junit-4.12_ca783cc14ced9bff691b79cf5092600750426a44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.android\build-cache\8a263b2b289f7fd04c7bb5dff5332c730fd68a8f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="796f9229948e907471c5595fbe94655ccf03ff73">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\classes_7d2654bc2835ba4e9d7a75ced1f29f9a2c0629db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\com.squareup\javawriter\2.1.1\67ff45d9ae02e583d0f9b3432a5ebbe05c30c966\javawriter-2.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\pre-dexed\androidTest\debug\javawriter-2.1.1_f72b97280b2715e270be777ce5ce5bff321bda60.jar" />
+    </item>
+
+</items>

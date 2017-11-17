@@ -71,3 +71,12 @@
 392	557	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	b491f44c29d96014
 3	312	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6ff9405151b25c34
 312	471	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	b491f44c29d96014
+3	331	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6ff9405151b25c34
+8	415	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	1a431d52f1b136ef
+415	578	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	b491f44c29d96014
+3	391	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	1a431d52f1b136ef
+391	555	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	b491f44c29d96014
+3	1358	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	1a431d52f1b136ef
+1358	1639	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	b491f44c29d96014
+4	1777	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	1a431d52f1b136ef
+1777	2185	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	b491f44c29d96014

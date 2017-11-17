@@ -221,7 +221,7 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
     AVFormatContext *ifmtCtx = avformat_alloc_context();
     AVFormatContext *ofmtCtx;
 //    string inputFileName = "/sdcard/input.mp4";
-    string inputFileName = "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";
+    string inputFileName = "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base";
     string outputFileName = "/sdcard/ts.mp4";
     string suffixName = ".mp4";
     AVPacket readPkt;
@@ -245,7 +245,7 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
     int den = ifmtCtx->streams[video_index]->r_frame_rate.den;//1
     int num = ifmtCtx->streams[video_index]->r_frame_rate.num;//25
     float fps = (float) num / den;
-    start_frame_pos = fps * startSecond-10;
+    start_frame_pos = fps * startSecond;
     end_frame_pos = fps * endSecond;
 
     string save_name;

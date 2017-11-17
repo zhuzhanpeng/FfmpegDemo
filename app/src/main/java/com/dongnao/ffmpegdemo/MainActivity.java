@@ -3,6 +3,7 @@ package com.dongnao.ffmpegdemo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.View;
@@ -52,6 +53,9 @@ public class MainActivity extends Activity {
 
     public void splitVideo(View view){
         String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
+        long startTime=System.currentTimeMillis();
         nativeSplitVideo(input);
+        long endTime=System.currentTimeMillis();
+        Log.e("MainActivity", "splitVideo: "+(endTime-startTime));
     }
 }
