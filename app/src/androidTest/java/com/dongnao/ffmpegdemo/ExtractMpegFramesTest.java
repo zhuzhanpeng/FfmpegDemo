@@ -281,6 +281,7 @@ public class ExtractMpegFramesTest extends AndroidTestCase {
                     decoder.releaseOutputBuffer(decoderStatus, doRender);
                     if (doRender) {
                         if (VERBOSE) Log.d(TAG, "awaiting decode of frame " + decodeCount);
+
                         outputSurface.awaitNewImage();
                         outputSurface.drawImage(true);
 

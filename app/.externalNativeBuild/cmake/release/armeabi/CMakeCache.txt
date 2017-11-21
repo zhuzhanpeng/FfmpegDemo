@@ -21,7 +21,7 @@ ANDROID_ABI:UNINITIALIZED=armeabi
 ANDROID_NDK:UNINITIALIZED=D:\InstalledSoft\sdk\ndk-bundle
 
 //No help, variable specified on the command line.
-ANDROID_PLATFORM:UNINITIALIZED=android-15
+ANDROID_PLATFORM:UNINITIALIZED=android-18
 
 //Archiver
 CMAKE_AR:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ar.exe
@@ -193,13 +193,13 @@ Project_BINARY_DIR:STATIC=D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild
 Project_SOURCE_DIR:STATIC=D:/srcCategory/ndk/FfmpegDemo/app
 
 //Path to a library.
-android-lib:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/libandroid.so
+android-lib:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/libandroid.so
 
 //Path to a library.
-log-lib:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/liblog.so
+log-lib:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/liblog.so
 
 //Dependencies for the target
-native-lib_LIB_DEPENDS:STATIC=general;avfilter-5;general;avcodec-56;general;avdevice-56;general;avformat-56;general;avutil-54;general;postproc-53;general;swresample-1;general;swscale-3;general;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/liblog.so;general;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/libandroid.so;general;android;general;OpenSLES;
+native-lib_LIB_DEPENDS:STATIC=general;avfilter-5;general;avcodec-56;general;avdevice-56;general;avformat-56;general;avutil-54;general;postproc-53;general;swresample-1;general;swscale-3;general;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/liblog.so;general;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/libandroid.so;general;android;general;OpenSLES;
 
 
 ########################

@@ -1,0 +1,11 @@
+# ninja log v5
+5	184	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	2ca56481e1c2c717
+3	313	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	86716c22054a804e
+1	372	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	f0252826470cbdcd
+372	551	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	852e307851cf1535
+3	755	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	86716c22054a804e
+755	1038	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	852e307851cf1535
+3	152	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	2ca56481e1c2c717
+5	276	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	86716c22054a804e
+4	345	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	f0252826470cbdcd
+345	486	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	852e307851cf1535

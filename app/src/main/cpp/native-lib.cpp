@@ -226,10 +226,10 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
     const char* path=env->GetStringUTFChars(path_,NULL);
 
 
-//    const char *in_filename="/sdcard/input.mp4";
+    const char *in_filename="/sdcard/input.mp4";
     /*const char *in_filename=
             "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";*/
-    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
+//    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
     const char *out_filename="/sdcard/m3u8.flv";
     AVOutputFormat *ofmt = NULL;
     //Input AVFormatContext and Output AVFormatContext

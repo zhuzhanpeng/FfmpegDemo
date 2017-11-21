@@ -3,7 +3,7 @@ arguments :
 -HD:\srcCategory\ndk\FfmpegDemo\app
 -BD:\srcCategory\ndk\FfmpegDemo\app\.externalNativeBuild\cmake\release\armeabi
 -DANDROID_ABI=armeabi
--DANDROID_PLATFORM=android-15
+-DANDROID_PLATFORM=android-18
 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\cmake\release\obj\armeabi
 -DCMAKE_BUILD_TYPE=Release
 -DANDROID_NDK=D:\InstalledSoft\sdk\ndk-bundle

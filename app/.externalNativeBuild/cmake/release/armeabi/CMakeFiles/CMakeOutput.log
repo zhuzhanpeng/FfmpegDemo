@@ -1,19 +1,19 @@
-The target system is: Android - 15 - armv5te
+The target system is: Android - 18 - armv5te
 The host system is: Windows - 10.0.15063 - AMD64
 Determining if the C compiler works passed with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_c3788"
-[1/2] Building C object CMakeFiles/cmTC_c3788.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_c3788
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_070d5"
+[1/2] Building C object CMakeFiles/cmTC_070d5.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_070d5
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_d1d41"
-[1/2] Building C object CMakeFiles/cmTC_d1d41.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_d1d41
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_7e887"
+[1/2] Building C object CMakeFiles/cmTC_7e887.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_7e887
 Android clang version 5.0.300080  (based on LLVM 5.0.300080)
 Target: armv5te-none-linux-android
 Thread model: posix
@@ -25,16 +25,16 @@ Candidate multilib: armv7-a;@armv7
 Candidate multilib: armv7-a/thumb;@armv7@thumb
 Candidate multilib: .;
 Selected multilib: thumb;@thumb
- "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_d1d41 "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_d1d41.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtend_android.o"
+ "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm -pie -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_7e887 "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_7e887.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtend_android.o"
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-androideabi-ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_d1d41"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_d1d41.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_d1d41]
+  ignore line: [Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_7e887"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_7e887.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_7e887]
   ignore line: [Android clang version 5.0.300080  (based on LLVM 5.0.300080)]
   ignore line: [Target: armv5te-none-linux-android]
   ignore line: [Thread model: posix]
@@ -51,9 +51,10 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [Selected multilib: thumb]
   ignore line: [@thumb]
-  link line: [ "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_d1d41 "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_d1d41.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtend_android.o"]
+  link line: [ "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm -pie -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_7e887 "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_7e887.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtend_android.o"]
     arg [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\ld] ==> ignore
-    arg [--sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm] ==> ignore
+    arg [--sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm] ==> ignore
+    arg [-pie] ==> ignore
     arg [-X] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
     arg [-m] ==> ignore
@@ -61,15 +62,15 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_d1d41] ==> ignore
-    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\crtbegin_dynamic.o] ==> ignore
+    arg [cmTC_7e887] ==> ignore
+    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\crtbegin_dynamic.o] ==> ignore
     arg [-LD:\InstalledSoft\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\5.0.300080\lib\linux\arm] ==> dir [D:\InstalledSoft\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\5.0.300080\lib\linux\arm]
     arg [-LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb]
     arg [-LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb]
-    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib]
-    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib]
+    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib]
+    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib]
     arg [-LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb]
-    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
     arg [--exclude-libs] ==> ignore
     arg [libgcc.a] ==> ignore
     arg [--build-id] ==> ignore
@@ -81,24 +82,24 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_d1d41.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_7e887.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\crtend_android.o] ==> ignore
+    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\crtend_android.o] ==> ignore
   remove lib [gcc]
   remove lib [gcc]
   collapse library dir [D:\InstalledSoft\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\5.0.300080\lib\linux\arm] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/5.0.300080/lib/linux/arm]
   collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb]
   collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb]
-  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
-  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
+  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
   collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb]
-  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
   implicit libs: [dl;c;dl]
-  implicit dirs: [D:/InstalledSoft/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/5.0.300080/lib/linux/arm;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+  implicit dirs: [D:/InstalledSoft/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/5.0.300080/lib/linux/arm;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
   implicit fwks: []
 
 
@@ -107,9 +108,9 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_b355a"
-[1/2] Building C object CMakeFiles/cmTC_b355a.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_b355a
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_77598"
+[1/2] Building C object CMakeFiles/cmTC_77598.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_77598
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -121,9 +122,9 @@ Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_b
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_0fbf8"
-[1/2] Building C object CMakeFiles/cmTC_0fbf8.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_0fbf8
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_57db9"
+[1/2] Building C object CMakeFiles/cmTC_57db9.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_57db9
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -135,9 +136,9 @@ Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_0
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_16ec3"
-[1/2] Building C object CMakeFiles/cmTC_16ec3.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_16ec3
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_df909"
+[1/2] Building C object CMakeFiles/cmTC_df909.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_df909
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -147,17 +148,17 @@ Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_1
 Determining if the CXX compiler works passed with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_11834"
-[1/2] Building CXX object CMakeFiles/cmTC_11834.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_11834
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_36dc4"
+[1/2] Building CXX object CMakeFiles/cmTC_36dc4.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_36dc4
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_0933d"
-[1/2] Building CXX object CMakeFiles/cmTC_0933d.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_0933d
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_f2277"
+[1/2] Building CXX object CMakeFiles/cmTC_f2277.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_f2277
 Android clang version 5.0.300080  (based on LLVM 5.0.300080)
 Target: armv5te-none-linux-android
 Thread model: posix
@@ -169,16 +170,16 @@ Candidate multilib: armv7-a;@armv7
 Candidate multilib: armv7-a/thumb;@armv7@thumb
 Candidate multilib: .;
 Selected multilib: thumb;@thumb
- "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_0933d "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_0933d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtend_android.o"
+ "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm -pie -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_f2277 "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_f2277.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtend_android.o"
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-androideabi-ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_0933d"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_0933d.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_0933d]
+  ignore line: [Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_f2277"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_f2277.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_f2277]
   ignore line: [Android clang version 5.0.300080  (based on LLVM 5.0.300080)]
   ignore line: [Target: armv5te-none-linux-android]
   ignore line: [Thread model: posix]
@@ -195,9 +196,10 @@ Parsed CXX implicit link information from above output:
   ignore line: []
   ignore line: [Selected multilib: thumb]
   ignore line: [@thumb]
-  link line: [ "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_0933d "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_0933d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\\crtend_android.o"]
+  link line: [ "D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\\ld" --sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm -pie -X --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_f2277 "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtbegin_dynamic.o" "-LD:\\InstalledSoft\\sdk\\ndk-bundle\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib64\\clang\\5.0.300080\\lib\\linux\\arm" -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib -LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb -LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib --exclude-libs libgcc.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_f2277.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\\crtend_android.o"]
     arg [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin\ld] ==> ignore
-    arg [--sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm] ==> ignore
+    arg [--sysroot=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm] ==> ignore
+    arg [-pie] ==> ignore
     arg [-X] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
     arg [-m] ==> ignore
@@ -205,15 +207,15 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0933d] ==> ignore
-    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\crtbegin_dynamic.o] ==> ignore
+    arg [cmTC_f2277] ==> ignore
+    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\crtbegin_dynamic.o] ==> ignore
     arg [-LD:\InstalledSoft\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\5.0.300080\lib\linux\arm] ==> dir [D:\InstalledSoft\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\5.0.300080\lib\linux\arm]
     arg [-LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb]
     arg [-LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb]
-    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib]
-    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib]
+    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib]
+    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib]
     arg [-LD:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb]
-    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+    arg [-LD:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib] ==> dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
     arg [--exclude-libs] ==> ignore
     arg [libgcc.a] ==> ignore
     arg [--build-id] ==> ignore
@@ -225,7 +227,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_0933d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_f2277.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -235,7 +237,7 @@ Parsed CXX implicit link information from above output:
     arg [-lgcc] ==> lib [gcc]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib\crtend_android.o] ==> ignore
+    arg [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib\crtend_android.o] ==> ignore
   remove lib [gcc]
   remove lib [gcc]
   remove lib [gcc]
@@ -243,12 +245,12 @@ Parsed CXX implicit link information from above output:
   collapse library dir [D:\InstalledSoft\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\5.0.300080\lib\linux\arm] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/5.0.300080/lib/linux/arm]
   collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb]
   collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib/thumb] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb]
-  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
-  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
+  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/arm-linux-androideabi/../../lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
   collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/thumb] ==> [D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb]
-  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+  collapse library dir [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib] ==> [D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
   implicit libs: [stdc++;m;dl;c;dl]
-  implicit dirs: [D:/InstalledSoft/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/5.0.300080/lib/linux/arm;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-15/arch-arm/usr/lib]
+  implicit dirs: [D:/InstalledSoft/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/5.0.300080/lib/linux/arm;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/thumb;D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/arm-linux-androideabi/lib/thumb;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib]
   implicit fwks: []
 
 
@@ -257,9 +259,9 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_9043d"
-[1/2] Building CXX object CMakeFiles/cmTC_9043d.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_9043d
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_c7027"
+[1/2] Building CXX object CMakeFiles/cmTC_c7027.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_c7027
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -324,9 +326,9 @@ Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_9
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_f739a"
-[1/2] Building CXX object CMakeFiles/cmTC_f739a.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_f739a
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_5afa0"
+[1/2] Building CXX object CMakeFiles/cmTC_5afa0.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_5afa0
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -391,9 +393,9 @@ Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_f
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_c93f4"
-[1/2] Building CXX object CMakeFiles/cmTC_c93f4.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_c93f4
+Run Build Command:"D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_1f024"
+[1/2] Building CXX object CMakeFiles/cmTC_1f024.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_1f024
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
