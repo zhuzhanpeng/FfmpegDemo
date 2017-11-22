@@ -1,13 +1,15 @@
 #include <jni.h>
 #include <string>
+#include <queue>
 #include "log.h"
+#include <pthread.h>
 #include "android/native_window_jni.h"
 
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_Android.h>
 #include "FFmpegMusic.h"
 #include "SplitVideo.h"
-
+#include "synconize.h"
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
 #define _Included_com_dongnao_ffmpegdemo_MainActivity
@@ -38,6 +40,62 @@ extern "C" {
 #include "libswscale/swscale.h"
 #include <libavutil/timestamp.h>
 #endif
+
+std::queue<AVPacket*> audio_queue, video_queue;
+
+AVFormatContext *ifmt_ctx;
+AVCodecContext *codec_ctx;
+AVPacket *readPkt;
+
+void *fill_stack(const char* path) {
+    av_register_all();
+    ifmt_ctx=avformat_alloc_context();
+    if(avformat_open_input(&ifmt_ctx,path,NULL,NULL)<0){
+        return (void *) -1;
+    }
+
+    if(avformat_find_stream_info(ifmt_ctx,NULL)<0){
+        return (void *) -1;
+    }
+
+    int video_id=-1;
+    int audio_id=-1;
+
+    for (int i = 0; i < ifmt_ctx->nb_streams; ++i) {
+        if(ifmt_ctx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO){
+            video_id=i;
+        }
+        if(ifmt_ctx->streams[i]->codec->codec_type==AVMEDIA_TYPE_AUDIO){
+            audio_id=i;
+        }
+    }
+
+    if(video_id==-1){
+        return (void *) -1;
+    }
+
+    if(audio_id==-1){
+        return (void *) -1;
+    }
+
+    codec_ctx=ifmt_ctx->streams[video_id]->codec;
+
+    AVCodec *avCodec = avcodec_find_decoder(codec_ctx->codec_id);
+    if(avcodec_open2(codec_ctx,avCodec,NULL)<0){
+        return (void *) -1;
+    }
+
+    while(av_read_frame(ifmt_ctx,readPkt)>=0){
+
+        if(readPkt->stream_index==video_id){
+            video_queue.push(readPkt);
+        }
+        if(readPkt->stream_index==audio_id){
+            audio_queue.push(readPkt);
+        }
+    }
+
+}
 // 当喇叭播放完声音时回调此方法
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
     bufferSize=0;
@@ -209,7 +267,15 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
  * Signature: (Ljava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
-        (JNIEnv *env, jobject instance, jstring path_) {}
+        (JNIEnv *env, jobject instance, jstring path_) {
+    const char* path=env->GetStringUTFChars(path_,NULL);
+    pthread_t pid;
+    pthread_create(&pid,NULL,fill_stack,path);
+    int* ret=0;
+    pthread_join(pid, (void **) &ret);
+    env->ReleaseStringUTFChars(path_,path);
+
+}
 static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag)
 {
     AVRational *time_base = &fmt_ctx->streams[pkt->stream_index]->time_base;
