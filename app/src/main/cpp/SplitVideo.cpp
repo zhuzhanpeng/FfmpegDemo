@@ -2,7 +2,6 @@
 #include "log.h"
 #include <string>
 #include <vector>
-#include<cstdlib>
 
 using namespace std;
 
@@ -313,10 +312,6 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
     }*/
 
     frame_index = 0;
-    int64_t lastPts = 0;
-    int64_t lastDts = 0;
-    int64_t prePts = 0;
-    int64_t preDts = 0;
 
     int64_t write_frame_total=0;
     while (1) {
@@ -327,21 +322,6 @@ bool executeSplitOneClip(unsigned int startSecond, unsigned int endSecond) {
         }
         av_packet_rescale_ts(&readPkt, ifmtCtx->streams[readPkt.stream_index]->time_base,
                              ofmtCtx->streams[readPkt.stream_index]->time_base);
-
-        prePts = readPkt.pts;
-        preDts = readPkt.dts;
-       /* readPkt.pts -= lastPts;
-        readPkt.dts -= lastDts;*/
-
-        if (readPkt.pts < readPkt.dts) {
-            readPkt.pts = readPkt.dts + 1;
-        }
-
-        //为分割点处的关键帧要进行拷贝
-        /*if(readPkt.flags & AV_PKT_FLAG_KEY && frame_index == start_keyFrame_pos){
-            lastDts = preDts;
-            lastPts = prePts;
-        }*/
 
         if(frame_index>=start_keyFrame_pos && frame_index < end_keyFrame_pos){
             ret = av_interleaved_write_frame(ofmtCtx, &readPkt);

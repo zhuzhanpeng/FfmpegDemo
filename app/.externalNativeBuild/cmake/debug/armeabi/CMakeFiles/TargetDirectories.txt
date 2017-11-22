@@ -1,3 +1,0 @@
-D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/native-lib.dir
-D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/edit_cache.dir
-D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/rebuild_cache.dir
