@@ -1,4 +1,4 @@
-# Install script for directory: F:/develop/FFmpegDemo/app
+# Install script for directory: D:/srcCategory/ndk/FfmpegDemo/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/develop/FFmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild/cmake/release/armeabi/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

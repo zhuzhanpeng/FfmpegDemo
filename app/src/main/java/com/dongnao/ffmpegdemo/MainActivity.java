@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.io.File;
 public class MainActivity extends Activity {
+    String path="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
     static{
         System.loadLibrary("native-lib");
     }
@@ -26,10 +27,12 @@ public class MainActivity extends Activity {
     public native void playNativeVideo(String path, Surface surface);
     public native void playNativeAudio(String path);
     public native void nativeSyncronize(String path);
+    public native void nativeTranscoding(String path);
+    public native void nativeSplitVideo(String path);
     public void playVideo(View view) {
         String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
         Toast.makeText(this,""+input,Toast.LENGTH_SHORT).show();
-        playNativeVideo(input,surfaceView.getHolder().getSurface());
+        playNativeVideo(path,surfaceView.getHolder().getSurface());
     }
 
     public void playAudio(View view){
@@ -42,4 +45,13 @@ public class MainActivity extends Activity {
         nativeSyncronize(input);
     }
 
+    public void transcoding(View view){
+        String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
+        nativeTranscoding(input);
+    }
+
+    public void splitVideo(View view){
+        String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
+        nativeSplitVideo(input);
+    }
 }

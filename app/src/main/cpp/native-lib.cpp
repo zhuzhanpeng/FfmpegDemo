@@ -6,6 +6,7 @@
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_Android.h>
 #include "FFmpegMusic.h"
+#include "SplitVideo.h"
 
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
@@ -35,12 +36,13 @@ extern "C" {
 #include "libswresample/swresample.h"
 //像素处理
 #include "libswscale/swscale.h"
+#include <libavutil/timestamp.h>
 #endif
 // 当喇叭播放完声音时回调此方法
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
     bufferSize=0;
 //    取到音频数据了
-    getPcm(&buffer, &bufferSize);
+    getPCM(&buffer, &bufferSize);
     if (NULL != buffer && 0 != bufferSize) {
 //        播放的关键地方
         SLresult  lresult=(*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, buffer, bufferSize);
@@ -54,11 +56,11 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
  */
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeVideo
         (JNIEnv *env, jobject instance, jstring path_, jobject surface) {
-    const char *path = env->GetStringUTFChars(path_, 0);
+    const char *input = env->GetStringUTFChars(path_, 0);
     ANativeWindow *nativeWindow = ANativeWindow_fromSurface(env, surface);
 
     av_register_all();
-    char *input = "/sdcard/input.mp4";
+//    char *input = "/sdcard/input.mp4";
     AVFormatContext *formatCtx = avformat_alloc_context();
     if (avformat_open_input(&formatCtx, input, NULL, NULL) < 0) {
         LOGE("avformat_open_input失败");
@@ -126,7 +128,7 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeVideo
     av_frame_free(&yuvFrame);
     av_frame_free(&frame);
     avformat_free_context(formatCtx);
-    env->ReleaseStringUTFChars(path_, path);
+    env->ReleaseStringUTFChars(path_, input);
 }
 
 /*
@@ -208,6 +210,128 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
  */
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
         (JNIEnv *env, jobject instance, jstring path_) {}
+static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag)
+{
+    AVRational *time_base = &fmt_ctx->streams[pkt->stream_index]->time_base;
+    printf("%s: pts:%s pts_time:%s dts:%s dts_time:%s duration:%s duration_time:%s stream_index:%d\n",
+           tag,
+           av_ts2str(pkt->pts), av_ts2timestr(pkt->pts, time_base),
+           av_ts2str(pkt->dts), av_ts2timestr(pkt->dts, time_base),
+           av_ts2str(pkt->duration), av_ts2timestr(pkt->duration, time_base),
+           pkt->stream_index);
+}
+
+JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscoding
+        (JNIEnv *env, jobject instance, jstring path_) {
+    const char* path=env->GetStringUTFChars(path_,NULL);
+
+
+//    const char *in_filename="/sdcard/input.mp4";
+    /*const char *in_filename=
+            "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";*/
+    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
+    const char *out_filename="/sdcard/m3u8.flv";
+    AVOutputFormat *ofmt = NULL;
+    //Input AVFormatContext and Output AVFormatContext
+    AVFormatContext *ifmt_ctx = NULL, *ofmt_ctx = NULL;
+    AVPacket pkt;
+
+    int ret, i;
+    int frame_index=0;
+
+    av_register_all();
+    avformat_network_init();
+    //Input
+    if ((ret = avformat_open_input(&ifmt_ctx, in_filename, 0, 0)) < 0) {
+        LOGE("Could not open input file.");
+        goto end;
+    }
+    if ((ret = avformat_find_stream_info(ifmt_ctx, 0)) < 0) {
+        LOGE( "Failed to retrieve input stream information");
+        goto end;
+    }
+    av_dump_format(ifmt_ctx, 0, in_filename, 0);
+    //Output
+    avformat_alloc_output_context2(&ofmt_ctx, NULL, NULL, out_filename);
+    if (!ofmt_ctx) {
+        LOGE( "Could not create output context\n");
+        ret = AVERROR_UNKNOWN;
+        goto end;
+    }
+    ofmt = ofmt_ctx->oformat;
+    for (i = 0; i < ifmt_ctx->nb_streams; i++) {
+        //Create output AVStream according to input AVStream
+        AVStream *in_stream = ifmt_ctx->streams[i];
+        AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
+        if (!out_stream) {
+            LOGE( "Failed allocating output stream\n");
+            ret = AVERROR_UNKNOWN;
+            goto end;
+        }
+        //Copy the settings of AVCodecContext
+        if (avcodec_copy_context(out_stream->codec, in_stream->codec) < 0) {
+            LOGE( "Failed to copy context from input to output stream codec context\n");
+            goto end;
+        }
+        out_stream->codec->codec_tag = 0;
+        if (ofmt_ctx->oformat->flags & AVFMT_GLOBALHEADER)
+            out_stream->codec->flags |= CODEC_FLAG_GLOBAL_HEADER;
+    }
+    //Output information------------------
+    av_dump_format(ofmt_ctx, 0, out_filename, 1);
+    //Open output file
+    if (!(ofmt->flags & AVFMT_NOFILE)) {
+        ret = avio_open(&ofmt_ctx->pb, out_filename, AVIO_FLAG_WRITE);
+        if (ret < 0) {
+            LOGE( "Could not open output file '%s'", out_filename);
+            goto end;
+        }
+    }
+    //Write file header
+    if (avformat_write_header(ofmt_ctx, NULL) < 0) {
+        LOGE( "Error occurred when opening output file\n");
+        goto end;
+    }
+
+    while (1) {
+        AVStream *in_stream, *out_stream;
+        //Get an AVPacket
+        ret = av_read_frame(ifmt_ctx, &pkt);
+        if (ret < 0)
+            break;
+        in_stream  = ifmt_ctx->streams[pkt.stream_index];
+        out_stream = ofmt_ctx->streams[pkt.stream_index];
+
+        //Convert PTS/DTS
+        pkt.pts = av_rescale_q_rnd(pkt.pts, in_stream->time_base, out_stream->time_base, (AVRounding)(AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX));
+        pkt.dts = av_rescale_q_rnd(pkt.dts, in_stream->time_base, out_stream->time_base, (AVRounding)(AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX));
+        pkt.duration = av_rescale_q(pkt.duration, in_stream->time_base, out_stream->time_base);
+        pkt.pos = -1;
+        //Write
+        if (av_interleaved_write_frame(ofmt_ctx, &pkt) < 0) {
+            LOGE( "Error muxing packet\n");
+            break;
+        }
+        LOGE("Write %8d frames to output file\n",frame_index);
+        av_free_packet(&pkt);
+        frame_index++;
+    }
+    //Write file trailer
+    av_write_trailer(ofmt_ctx);
+    end:
+    avformat_close_input(&ifmt_ctx);
+    /* close output */
+    if (ofmt_ctx && !(ofmt->flags & AVFMT_NOFILE))
+        avio_close(ofmt_ctx->pb);
+    avformat_free_context(ofmt_ctx);
+
+    env->ReleaseStringUTFChars(path_,path);
+}
+JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSplitVideo
+        (JNIEnv *env, jobject instance, jstring path_) {
+    LOGE("nativeSplitVideo");
+    executeSplitOneClip(60,100);
+}
 
 #ifdef __cplusplus
 }
