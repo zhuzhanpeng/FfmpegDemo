@@ -17,6 +17,9 @@ android {
             }
         }
         externalNativeBuild {
+            /*ndkBuild {
+                arguments "NDK_TOOLCHAIN_VERSION=4.9"
+            }*/
             cmake {
                 cppFlags "-frtti -fexceptions"
                 abiFilters 'armeabi'
