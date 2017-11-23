@@ -217,7 +217,6 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
     const char* path=env->GetStringUTFChars(path_,NULL);
     audioSynVideo(path);
     env->ReleaseStringUTFChars(path_,path);
-
 }
 static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag)
 {

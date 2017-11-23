@@ -1,11 +1,14 @@
 #include "synconize.h"
 #include <queue>
+#include "FFmpegVideo.h"
+#include "FFmpegMusic.h"
 
 #include <libavformat/avformat.h>
 extern "C" {
 #include <pthread.h>
 #include <unistd.h>
 using namespace std;
+//这是什么意思
 #ifndef _Nonnull
 #define _Nonnull
 #endif
@@ -15,6 +18,9 @@ std::queue<AVPacket*> audio_queue, video_queue;
 AVFormatContext *ifmt_ctx;
 AVCodecContext *codec_ctx;
 AVPacket *readPkt;
+FFmpegMusic audio;
+FFmpegVideo video;
+
 
 void *fill_stack(const char* path) {
     av_register_all();

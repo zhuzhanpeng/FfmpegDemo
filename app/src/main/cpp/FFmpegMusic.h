@@ -8,8 +8,25 @@
 
 #endif //FFMPEGDEMO_FFMPEGMUSIC_H
 
-int createFFmpeg(int* rate,int* channels);
+#include <pthread.h>
+#include <queue>
+#include <libavformat/avformat.h>
 
-void getPCM(void **outBuffer,size_t *size);
+class FFmpegMusic{
+    //方法
+public:
+    FFmpegMusic();
+    ~FFmpegMusic();
+    void play();
+    void put(AVPacket* packet);
+    int createFFmpeg(int* rate,int* channels);
+    void getPCM(void **outBuffer,size_t *size);
+    void release();
+    //字段
+public:
+    double clock;
+    pthread_t a_tid;
+    int is_playing;
+    std::queue<AVPacket*> queue;
 
-void release();
+};
