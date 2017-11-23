@@ -4,6 +4,7 @@ add_library( native-lib
              src/main/cpp/native-lib.cpp
              src/main/cpp/FFmpegMusic.cpp
              src/main/cpp/SplitVideo.cpp
+             src/main/cpp/synconize.cpp
               )
 
 find_library( log-lib

@@ -1,0 +1,2 @@
+
+void* audioSynVideo(const char *);

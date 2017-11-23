@@ -1,13 +1,15 @@
 #include <jni.h>
 #include <string>
+#include <queue>
 #include "log.h"
+#include <pthread.h>
 #include "android/native_window_jni.h"
 
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_Android.h>
 #include "FFmpegMusic.h"
 #include "SplitVideo.h"
-
+#include "synconize.h"
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
 #define _Included_com_dongnao_ffmpegdemo_MainActivity
@@ -38,6 +40,8 @@ extern "C" {
 #include "libswscale/swscale.h"
 #include <libavutil/timestamp.h>
 #endif
+
+
 // 当喇叭播放完声音时回调此方法
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
     bufferSize=0;
@@ -209,7 +213,12 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
  * Signature: (Ljava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
-        (JNIEnv *env, jobject instance, jstring path_) {}
+        (JNIEnv *env, jobject instance, jstring path_) {
+    const char* path=env->GetStringUTFChars(path_,NULL);
+    audioSynVideo(path);
+    env->ReleaseStringUTFChars(path_,path);
+
+}
 static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag)
 {
     AVRational *time_base = &fmt_ctx->streams[pkt->stream_index]->time_base;
@@ -226,10 +235,10 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
     const char* path=env->GetStringUTFChars(path_,NULL);
 
 
-//    const char *in_filename="/sdcard/input.mp4";
+    const char *in_filename="/sdcard/input.mp4";
     /*const char *in_filename=
             "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";*/
-    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
+//    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
     const char *out_filename="/sdcard/m3u8.flv";
     AVOutputFormat *ofmt = NULL;
     //Input AVFormatContext and Output AVFormatContext
@@ -329,7 +338,6 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
 }
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSplitVideo
         (JNIEnv *env, jobject instance, jstring path_) {
-    LOGE("nativeSplitVideo");
     executeSplitOneClip(60,100);
 }
 
