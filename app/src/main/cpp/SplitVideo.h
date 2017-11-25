@@ -3,7 +3,7 @@
 #define FFMPEGDEMO_SPLITVIDEO_H
 
 #endif //FFMPEGDEMO_SPLITVIDEO_H
-
+#define __STDC_FORMAT_MACROS
 extern "C" {
 #include <libavutil/mathematics.h>
 #include <libavformat/avformat.h>

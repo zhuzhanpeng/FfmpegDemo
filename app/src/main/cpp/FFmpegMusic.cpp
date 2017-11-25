@@ -2,7 +2,8 @@
 // Created by Administrator on 2017/11/14.
 #include "FFmpegMusic.h"
 
-extern "C" {
+
+extern "C"{
 //编码
 #include "libavcodec/avcodec.h"
 //封装格式处理
@@ -12,6 +13,9 @@ extern "C" {
 //像素处理
 #include "libswscale/swscale.h"
 }
+
+
+
 AVFormatContext *formatCtx;
 int audio_id = -1;
 AVFrame *frame;
@@ -21,7 +25,20 @@ AVCodecContext *codecCtx;
 SwrContext *swrCtx;
 uint8_t *out_buffer;
 
-int createFFmpeg(int *rate, int *channels) {
+FFmpegMusic::FFmpegMusic(){
+
+}
+FFmpegMusic::~FFmpegMusic(){
+
+}
+void FFmpegMusic::play(){
+
+}
+void FFmpegMusic::put(AVPacket* packet){
+
+}
+
+int FFmpegMusic::createFFmpeg(int *rate, int *channels) {
     char *input = "/sdcard/input.mp4";
     av_register_all();
     formatCtx = avformat_alloc_context();

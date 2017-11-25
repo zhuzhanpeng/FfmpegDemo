@@ -18,13 +18,13 @@
 ANDROID_ABI:UNINITIALIZED=armeabi
 
 //No help, variable specified on the command line.
-ANDROID_NDK:UNINITIALIZED=D:\InstalledSoft\sdk\ndk-bundle
+ANDROID_NDK:UNINITIALIZED=D:\android-ndk-r14b
 
 //No help, variable specified on the command line.
 ANDROID_PLATFORM:UNINITIALIZED=android-18
 
 //Archiver
-CMAKE_AR:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ar.exe
+CMAKE_AR:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ar.exe
 
 //Flags used by the compiler during all build types.
 CMAKE_ASM_FLAGS:STRING=
@@ -56,7 +56,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Libraries linked by default with all C++ applications.
-CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lm "D:/InstalledSoft/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/libgnustl_static.a" "-latomic"
+CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lm "D:/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/libgnustl_static.a" "-latomic"
 
 //Flags used by the compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -102,7 +102,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Project
 CMAKE_LIBRARY_OUTPUT_DIRECTORY:UNINITIALIZED=D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\cmake\release\obj\armeabi
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ld.exe
+CMAKE_LINKER:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ld.exe
 
 //No help, variable specified on the command line.
 CMAKE_MAKE_PROGRAM:UNINITIALIZED=D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\ninja.exe
@@ -123,19 +123,19 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-nm.exe
+CMAKE_NM:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-nm.exe
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-objcopy.exe
+CMAKE_OBJCOPY:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-objcopy.exe
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-objdump.exe
+CMAKE_OBJDUMP:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-objdump.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Project
 
 //Ranlib
-CMAKE_RANLIB:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ranlib.exe
+CMAKE_RANLIB:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ranlib.exe
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -175,10 +175,10 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-strip.exe
+CMAKE_STRIP:FILEPATH=D:/android-ndk-r14b/toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64/bin/arm-linux-androideabi-strip.exe
 
 //The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/build/cmake/android.toolchain.cmake
+CMAKE_TOOLCHAIN_FILE:FILEPATH=D:/android-ndk-r14b/build/cmake/android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -193,13 +193,13 @@ Project_BINARY_DIR:STATIC=D:/srcCategory/ndk/FfmpegDemo/app/.externalNativeBuild
 Project_SOURCE_DIR:STATIC=D:/srcCategory/ndk/FfmpegDemo/app
 
 //Path to a library.
-android-lib:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/libandroid.so
+android-lib:FILEPATH=D:/android-ndk-r14b/platforms/android-18/arch-arm/usr/lib/libandroid.so
 
 //Path to a library.
-log-lib:FILEPATH=D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/liblog.so
+log-lib:FILEPATH=D:/android-ndk-r14b/platforms/android-18/arch-arm/usr/lib/liblog.so
 
 //Dependencies for the target
-native-lib_LIB_DEPENDS:STATIC=general;avfilter-5;general;avcodec-56;general;avdevice-56;general;avformat-56;general;avutil-54;general;postproc-53;general;swresample-1;general;swscale-3;general;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/liblog.so;general;D:/InstalledSoft/sdk/ndk-bundle/platforms/android-18/arch-arm/usr/lib/libandroid.so;general;android;general;OpenSLES;
+native-lib_LIB_DEPENDS:STATIC=general;avfilter-5;general;avcodec-56;general;avdevice-56;general;avformat-56;general;avutil-54;general;postproc-53;general;swresample-1;general;swscale-3;general;D:/android-ndk-r14b/platforms/android-18/arch-arm/usr/lib/liblog.so;general;D:/android-ndk-r14b/platforms/android-18/arch-arm/usr/lib/libandroid.so;general;android;general;OpenSLES;
 
 
 ########################

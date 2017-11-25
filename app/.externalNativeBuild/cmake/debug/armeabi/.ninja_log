@@ -1,4 +1,11 @@
 # ninja log v5
-3	237	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	2ca56481e1c2c717
-4	402	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	86716c22054a804e
-1	436	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	f0252826470cbdcd
+6	368	0	CMakeFiles/native-lib.dir/src/main/cpp/synconize.cpp.o	e41bc53b6354a938
+4	376	0	CMakeFiles/native-lib.dir/src/main/cpp/coffeecatch.c.o	3a085410ec5ca26d
+5	408	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	22d5a41620cf6cd7
+2	423	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegVideo.cpp.o	134eeba1dad1c059
+3	430	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	220945c262eb4f3a
+1	479	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	5ee8001ef239714a
+369	490	0	CMakeFiles/native-lib.dir/src/main/cpp/coffeejni.c.o	b32c0e15314d45c9
+490	631	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	bc9a7a294ce656de
+2	219	0	CMakeFiles/native-lib.dir/src/main/cpp/synconize.cpp.o	e41bc53b6354a938
+219	369	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	bc9a7a294ce656de

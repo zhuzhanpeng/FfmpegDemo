@@ -2,9 +2,14 @@ cmake_minimum_required(VERSION 3.4.1)
 add_library( native-lib
              SHARED
              src/main/cpp/native-lib.cpp
-             src/main/cpp/FFmpegMusic.cpp
-             src/main/cpp/SplitVideo.cpp
              src/main/cpp/synconize.cpp
+             src/main/cpp/FFmpegMusic.cpp
+             src/main/cpp/FFmpegVideo.cpp
+
+             src/main/cpp/SplitVideo.cpp
+             src/main/cpp/coffeecatch.c
+             src/main/cpp/coffeejni.c
+
               )
 
 find_library( log-lib

@@ -1,18 +1,18 @@
 #include <jni.h>
 #include <string>
-#include <queue>
+#include "synconize.h"
 #include "log.h"
 #include <pthread.h>
 #include "android/native_window_jni.h"
 
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_Android.h>
-#include "FFmpegMusic.h"
+
 #include "SplitVideo.h"
-#include "synconize.h"
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
 #define _Included_com_dongnao_ffmpegdemo_MainActivity
+#endif
 SLEnvironmentalReverbSettings settings;
 SLObjectItf engineObject;
 SLEngineItf engineInterface;
@@ -28,8 +28,9 @@ SLAndroidSimpleBufferQueueItf bqPlayerBufferQueue;
 SLVolumeItf bqPlayerVolume;
 void *buffer;
 size_t bufferSize = 0;
-#ifdef __cplusplus
+
 extern "C" {
+
 //编码
 #include "libavcodec/avcodec.h"
 //封装格式处理
@@ -39,14 +40,13 @@ extern "C" {
 //像素处理
 #include "libswscale/swscale.h"
 #include <libavutil/timestamp.h>
-#endif
-
+}
 
 // 当喇叭播放完声音时回调此方法
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
     bufferSize=0;
 //    取到音频数据了
-    getPCM(&buffer, &bufferSize);
+//    getPCM(&buffer, &bufferSize);
     if (NULL != buffer && 0 != bufferSize) {
 //        播放的关键地方
         SLresult  lresult=(*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, buffer, bufferSize);
@@ -58,6 +58,7 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
  * Method:    playVideo
  * Signature: (Ljava/lang/String;Landroid/view/Surface;)V
  */
+extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeVideo
         (JNIEnv *env, jobject instance, jstring path_, jobject surface) {
     const char *input = env->GetStringUTFChars(path_, 0);
@@ -140,6 +141,7 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeVideo
  * Method:    playAudio
  * Signature: (Ljava/lang/String;)V
  */
+extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
         (JNIEnv *env, jobject instance, jstring path_) {
     const char *path = env->GetStringUTFChars(path_, NULL);
@@ -165,7 +167,7 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
     int rate;
     //声道数
     int channels;
-    createFFmpeg(&rate, &channels);
+//    createFFmpeg(&rate, &channels);
     LOGE(" 比特率%d  ,channels %d", rate, channels);
     //  配置信息设置
     SLDataLocator_AndroidSimpleBufferQueue android_queue = {SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE,
@@ -212,12 +214,13 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
  * Method:    syncronize
  * Signature: (Ljava/lang/String;)V
  */
+extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
-        (JNIEnv *env, jobject instance, jstring path_) {
+        (JNIEnv *env, jobject instance, jstring path_,jobject surface) {
     const char* path=env->GetStringUTFChars(path_,NULL);
-    audioSynVideo(path);
+    ANativeWindow* nativeWindow= ANativeWindow_fromSurface(env, surface);
+    audioSynVideo(path,nativeWindow);
     env->ReleaseStringUTFChars(path_,path);
-
 }
 static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag)
 {
@@ -229,7 +232,7 @@ static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, cons
            av_ts2str(pkt->duration), av_ts2timestr(pkt->duration, time_base),
            pkt->stream_index);
 }
-
+extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscoding
         (JNIEnv *env, jobject instance, jstring path_) {
     const char* path=env->GetStringUTFChars(path_,NULL);
@@ -336,13 +339,10 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
 
     env->ReleaseStringUTFChars(path_,path);
 }
+extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSplitVideo
         (JNIEnv *env, jobject instance, jstring path_) {
     executeSplitOneClip(60,100);
 }
 
-#ifdef __cplusplus
-}
-#endif
-#endif
 

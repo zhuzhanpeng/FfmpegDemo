@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\permissionsdispatcher-3.0.1.aar\ad800f9001b5366756dba4d34117c843\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a341f8c90920e28d447e0312a3c058402dde1b9a">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.4.0.aar\abc29e45001d44bd5c4ea2660d1eb680\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-fragment-25.4.0.aar\8f40e14c39ab02d7fa0d5e434f0c914a\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\8c29fd6e28c380a59300567962cace96\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.4.0.aar\c03e80d75e6ac06bcf09a9913bb0bacc\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4961be1437163ab598620a3c907c0f3432936f51">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\InstalledSoft\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\25.4.0\f6a2fc748ae3769633dea050563e1613e93c135e\support-annotations-25.4.0.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f6a2fc748ae3769633dea050563e1613e93c135e">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\f3797b074e9dc1fe6052f9c928c418e0\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\422938805f32c815234ac096a3ad392c\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.4.0.aar\20aa34a0d99c6dc08f8a06bd0a8e8344\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\68ab338c73e0934bd3b428b540421249\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\f9ccbc97051b7fa229f4c55d33613cec\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e04f28ac2dd9bbe48ced6fc87fedf46c2586f5d6">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Edison\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\f69f887a896c5f54e477ce2cf7c4467d\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="18"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\srcCategory\ndk\FfmpegDemo\app\build\intermediates\transforms\preDex\release\6.jar" />
+    </item>
+
+</items>

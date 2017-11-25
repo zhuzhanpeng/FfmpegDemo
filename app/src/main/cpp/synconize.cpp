@@ -1,25 +1,42 @@
 #include "synconize.h"
-#include <queue>
+#include "log.h"
+#include "FFmpegVideo.h"
+#include "FFmpegMusic.h"
+#include "coffeecatch.h"
 
-#include <libavformat/avformat.h>
-extern "C" {
-#include <pthread.h>
-#include <unistd.h>
 using namespace std;
-#ifndef _Nonnull
-#define _Nonnull
-#endif
 
-std::queue<AVPacket*> audio_queue, video_queue;
 
+
+ANativeWindow *nativeWindow2;
 AVFormatContext *ifmt_ctx;
 AVCodecContext *codec_ctx;
 AVPacket *readPkt;
+FFmpegMusic *audio;
+FFmpegVideo *video;
 
-void *fill_stack(const char* path) {
+void play_frame(AVFrame* rgb_frame){
+    if(!nativeWindow2)
+        return ;
+    ANativeWindow_Buffer aNativeWindow_buffer;
+            ANativeWindow_lock(nativeWindow2, &aNativeWindow_buffer, NULL);
+            uint8_t *dst = (uint8_t *) aNativeWindow_buffer.bits;
+            int dstStride = aNativeWindow_buffer.stride * 4;
+
+            uint8_t *src = rgb_frame->data[0];
+            int srcStride = rgb_frame->linesize[0];
+            int i = 0;
+            for (; i < aNativeWindow_buffer.height; i++) {
+                memcpy(dst + i * dstStride, src + i * srcStride, srcStride);
+            }
+            ANativeWindow_unlockAndPost(nativeWindow2);
+
+}
+
+void *fill_stack(void* path) {
     av_register_all();
     ifmt_ctx=avformat_alloc_context();
-    if(avformat_open_input(&ifmt_ctx,path,NULL,NULL)<0){
+    if(avformat_open_input(&ifmt_ctx, (const char *) path, NULL, NULL) < 0){
         return (void *) -1;
     }
 
@@ -31,11 +48,27 @@ void *fill_stack(const char* path) {
     int audio_id=-1;
 
     for (int i = 0; i < ifmt_ctx->nb_streams; ++i) {
+        AVCodecContext *pCodeCtx = ifmt_ctx->streams[i]->codec;
+        AVCodec *pCodec = avcodec_find_decoder(pCodeCtx->codec_id);
+
+        AVCodecContext *codec = avcodec_alloc_context3(pCodec);
+        avcodec_copy_context(codec, pCodeCtx);
+        if(avcodec_open2(codec,pCodec,NULL) < 0){
+            LOGE("%s","解码器无法打开");
+            continue;
+        }
         if(ifmt_ctx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO){
+            AVCodecContext *codecCtx=ifmt_ctx->streams[i]->codec;
+            ANativeWindow_setBuffersGeometry(nativeWindow2,
+                                             codecCtx->width, codecCtx->height, WINDOW_FORMAT_RGBA_8888);
             video_id=i;
+            video->time_base= ifmt_ctx->streams[i]->codec->time_base;
+            video->codec_ctx=codec;
         }
         if(ifmt_ctx->streams[i]->codec->codec_type==AVMEDIA_TYPE_AUDIO){
             audio_id=i;
+            audio->time_base=ifmt_ctx->streams[i]->codec->time_base;
+            audio->codec_ctx;
         }
     }
 
@@ -57,22 +90,35 @@ void *fill_stack(const char* path) {
     while(av_read_frame(ifmt_ctx,readPkt)>=0){
 
         if(readPkt->stream_index==video_id){
-            video_queue.push(readPkt);
+            video->put(readPkt);
         }
         if(readPkt->stream_index==audio_id){
-            audio_queue.push(readPkt);
+            audio->put(readPkt);
         }
     }
 
-}
-void *audioSynVideo(const char *path) {
-    pthread_t pid;
-    pthread_create(&pid,NULL,fill_stack,path);
-    int* ret=0;
-    pthread_join(pid, (void **) &ret);
-}
+    video->play();
+//    audio->play();
 
 }
+void *audioSynVideo(const char *path,ANativeWindow* mNw) {
+    COFFEE_TRY() {
+        nativeWindow2= mNw;
+
+        video=new FFmpegVideo();
+        video->setPlayFrame(play_frame);
+        audio=new FFmpegMusic();
+        pthread_t pid;
+        pthread_create(&pid, NULL, fill_stack, (void *) path);
+        int* ret=0;
+        pthread_join(pid, (void **) &ret);
+    } COFFEE_CATCH() {
+        const char*const message = coffeecatch_get_message();
+        LOGE("%s",message);
+    } COFFEE_END();
+
+}
+
 
 
 

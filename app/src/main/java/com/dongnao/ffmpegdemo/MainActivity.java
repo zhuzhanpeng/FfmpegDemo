@@ -1,21 +1,14 @@
 package com.dongnao.ffmpegdemo;
 
-import android.Manifest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Toast;
 
 import java.io.File;
-
-import permissions.dispatcher.NeedsPermission;
-import permissions.dispatcher.RuntimePermissions;
-
-@RuntimePermissions
 public class MainActivity extends Activity {
     String path="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
     static{
@@ -33,7 +26,7 @@ public class MainActivity extends Activity {
 
     public native void playNativeVideo(String path, Surface surface);
     public native void playNativeAudio(String path);
-    public native void nativeSyncronize(String path);
+    public native void nativeSyncronize(String path,Surface surface);
     public native void nativeTranscoding(String path);
     public native void nativeSplitVideo(String path);
     public void playVideo(View view) {
@@ -49,7 +42,7 @@ public class MainActivity extends Activity {
 
     public void syncronize(View view){
         String input = new File(Environment.getExternalStorageDirectory(), "input.mp4").getAbsolutePath();
-        nativeSyncronize(input);
+        nativeSyncronize(input,surfaceView.getHolder().getSurface());
     }
 
     public void transcoding(View view){
@@ -62,15 +55,6 @@ public class MainActivity extends Activity {
         nativeSplitVideo(input);
         long endTime=System.currentTimeMillis();
         Log.e("MainActivity", "splitVideo: "+(endTime-startTime));*/
-        needPermit();
     }
-    @NeedsPermission({Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    public void needPermit(){
 
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        MainActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
-    }
 }
