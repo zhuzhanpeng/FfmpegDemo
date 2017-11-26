@@ -8,9 +8,10 @@
 
 #endif //FFMPEGDEMO_FFMPEGMUSIC_H
 
-#include <pthread.h>
 extern "C"{
 #include <libavformat/avformat.h>
+#include <pthread.h>
+
 };
 #include <queue>
 
@@ -32,4 +33,6 @@ public:
     std::queue<AVPacket*> queue;
     AVRational time_base;
     AVCodecContext codec_ctx;
+    pthread_mutex_t* mutex;
+    pthread_cond_t* cond;
 };

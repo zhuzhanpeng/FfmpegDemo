@@ -8,11 +8,10 @@
 
 extern "C"{
 #include <libavformat/avformat.h>
-
+#include <pthread.h>
 };
 #endif //FFMPEGDEMO_FFMPEGVIDEO_H
 
-#include <pthread.h>
 #include <queue>
 
 
@@ -31,8 +30,9 @@ public:
     double clock;
     pthread_t v_tid;
     std::queue<AVPacket*> queue;
-    pthread_mutex_t v_mutex;
     int is_playing;
     AVRational time_base;
     AVCodecContext* codec_ctx;
+    pthread_mutex_t mutex;
+    pthread_cond_t cond;
 };

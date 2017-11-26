@@ -127,7 +127,6 @@
     <orderEntry type="library" name="com.android.support:support-core-ui-25.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="com.squareup:javawriter:2.1.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-compat-25.4.0" level="project" />
-    <orderEntry type="library" name="com.github.hotchemi:permissionsdispatcher-3.0.1" level="project" />
     <orderEntry type="library" name="com.android.support:support-annotations:25.4.0@jar" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-25.4.0" level="project" />

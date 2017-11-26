@@ -4,9 +4,9 @@
 extern "C"{
 #include <libswscale/swscale.h>
 }
-ANativeWindow *nativeWindow;
 FFmpegVideo::FFmpegVideo(){
-
+    pthread_mutex_init(&mutex,NULL);
+    pthread_cond_init(&cond,NULL);
 }
 FFmpegVideo::~FFmpegVideo(){
 
@@ -29,6 +29,7 @@ void* play_callback(void* argc){
                                         SWS_BILINEAR, NULL, NULL, NULL);
     int got_frame = -1;
     while (video->is_playing) {
+        LOGE("循环");
         video->get(packet);
         avcodec_decode_video2(video->codec_ctx, frame, &got_frame, packet);
         if (got_frame != 0) {
@@ -41,12 +42,35 @@ void* play_callback(void* argc){
 
 }
 void FFmpegVideo::put(AVPacket* packet){
-    AVPacket* copy_pkt = (AVPacket *) av_malloc(sizeof(AVPacket));
+    AVPacket* copy_pkt = (AVPacket *) av_mallocz(sizeof(AVPacket));
     if(av_copy_packet(copy_pkt,packet)){
         LOGE("克隆失败");
         return;
     }
+    pthread_mutex_lock(&mutex);
     queue.push(copy_pkt);
+    pthread_cond_signal(&cond);
+    LOGE("put");
+    pthread_mutex_unlock(&mutex);
+}
+void FFmpegVideo::get(AVPacket* packet){
+    LOGE("get外");
+    pthread_mutex_lock(&mutex);
+    while (is_playing){
+        if(!queue.empty()){
+            av_packet_ref(packet, queue.front());
+                LOGE("0ref");
+            AVPacket *pkt = queue.front();
+            queue.pop();
+            av_free(pkt);
+            break;
+
+        }else{
+            pthread_cond_wait(&cond,&mutex);
+            LOGE("wait");
+        }
+    }
+    pthread_mutex_unlock(&mutex);
 }
 void FFmpegVideo::play(){
     is_playing=1;
@@ -56,15 +80,7 @@ void FFmpegVideo::play(){
 void FFmpegVideo::setPlayFrame(void (*play_frame)(AVFrame* frame)){
     video_call=play_frame;
 }
-void FFmpegVideo::get(AVPacket* packet){
-    while (is_playing){
-        if(!queue.empty()){
-            av_packet_ref(packet,queue.front());
-        }else{
 
-        }
-    }
-}
 
 void FFmpegVideo::release(){
 }
