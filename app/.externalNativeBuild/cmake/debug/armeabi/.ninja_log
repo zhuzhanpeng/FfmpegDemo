@@ -47,3 +47,13 @@
 326	528	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	67e8c44f6bfb8fec
 3	183	0	CMakeFiles/native-lib.dir/src/main/cpp/multi_merge_video.cpp.o	f2aa3fa3d8032501
 183	368	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	67e8c44f6bfb8fec
+0	449	0	CMakeFiles/native-lib.dir/src/main/cpp/coffeecatch.c.o	1bd77a1c146ed95d
+35	1497	0	CMakeFiles/native-lib.dir/src/main/cpp/SplitVideo.cpp.o	8f7563c6d7116632
+14	1500	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegMusic.cpp.o	8aaf866e583acb2f
+50	1503	0	CMakeFiles/native-lib.dir/src/main/cpp/synconize.cpp.o	673de5540215506e
+6	1506	0	CMakeFiles/native-lib.dir/src/main/cpp/FFmpegVideo.cpp.o	3f26462ce55225a7
+449	1513	0	CMakeFiles/native-lib.dir/src/main/cpp/merge_video.cpp.o	36ccfacecc410223
+14	148	0	CMakeFiles/native-lib.dir/src/main/cpp/coffeejni.c.o	90b37f8646330ef4
+8	190	0	CMakeFiles/native-lib.dir/src/main/cpp/multi_merge_video.cpp.o	f2aa3fa3d8032501
+2	322	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	329dd6789a9cf2a3
+322	501	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	67e8c44f6bfb8fec

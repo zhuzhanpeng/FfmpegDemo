@@ -382,11 +382,4 @@ Java_com_dongnao_ffmpegdemo_MainActivity_natveMergeVideo(JNIEnv *env, jobject in
     env->ReleaseStringUTFChars(inputName4_, inputName4);
     env->ReleaseStringUTFChars(inputName5_, inputName5);
     env->ReleaseStringUTFChars(inputName6_, inputName6);
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_dongnao_ffmpegdemo_MainActivity_natveMergeVideo2(JNIEnv *env, jobject instance,
-                                                          ) {
-
-    // TODO
-
 }

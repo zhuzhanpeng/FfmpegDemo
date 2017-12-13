@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
                                        String inputName4,
                                        String inputName5,
                                        String inputName6);
-    public native void natveMergeVideo2(String[] input,int count);
+
 
     public void playVideo(View view){
         playNativeVideo(path,surfaceView.getHolder().getSurface());
@@ -59,9 +59,9 @@ public class MainActivity extends Activity {
 
     private void callMerge(){
         start=System.currentTimeMillis();
-        natveMergeVideo("/sdcard/i1.mp4",
-                "/sdcard/i2.mp4",
-                "/sdcard/v1.mp4",
+        natveMergeVideo("/sdcard/combine1.mp4",
+                "/sdcard/combine2.mp4",
+                "/sdcard/combine3.mp4",
                 "/sdcard/combine4.mp4",
                 "/sdcard/combine5.mp4",
                 "/sdcard/combine6.mp4");
