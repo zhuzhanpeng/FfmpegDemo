@@ -57,3 +57,5 @@
 8	190	0	CMakeFiles/native-lib.dir/src/main/cpp/multi_merge_video.cpp.o	f2aa3fa3d8032501
 2	322	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	329dd6789a9cf2a3
 322	501	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	67e8c44f6bfb8fec
+3	327	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	329dd6789a9cf2a3
+327	628	0	../../../../build/intermediates/cmake/debug/obj/armeabi/libnative-lib.so	67e8c44f6bfb8fec

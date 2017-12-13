@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
                                        String inputName6);
 
 
+
     public void playVideo(View view){
         playNativeVideo(path,surfaceView.getHolder().getSurface());
     }
