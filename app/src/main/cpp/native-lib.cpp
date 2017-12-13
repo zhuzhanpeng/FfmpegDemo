@@ -9,6 +9,7 @@
 
 #include "SplitVideo.h"
 #include "merge_video.h"
+#include "multi_merge_video.h"
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
 #define _Included_com_dongnao_ffmpegdemo_MainActivity
@@ -351,21 +352,41 @@ Java_com_dongnao_ffmpegdemo_MainActivity_natveMergeVideo(JNIEnv *env, jobject in
                                                          jstring inputName2_,
                                                          jstring inputName3_,
                                                          jstring inputName4_,
-                                                         jstring inputName5_) {
+                                                         jstring inputName5_,jstring inputName6_) {
     const char *intputName1 = env->GetStringUTFChars(intputName1_, 0);
     const char *inputName2 = env->GetStringUTFChars(inputName2_, 0);
     const char *inputName3 = env->GetStringUTFChars(inputName3_, 0);
     const char *inputName4 = env->GetStringUTFChars(inputName4_, 0);
     const char *inputName5 = env->GetStringUTFChars(inputName5_, 0);
+    const char *inputName6 = env->GetStringUTFChars(inputName6_, 0);
 
-    merge(intputName1, inputName2, "/sdcard/merge1.mp4");
+    /*merge(intputName1, inputName2, "/sdcard/merge1.mp4");
     merge("/sdcard/merge1.mp4", inputName3, "/sdcard/merge2.mp4");
     merge("/sdcard/merge2.mp4", inputName4, "/sdcard/merge3.mp4");
-    merge("/sdcard/merge3.mp4", inputName5, "/sdcard/merge4.mp4");
+    merge("/sdcard/merge3.mp4", inputName5, "/sdcard/merge4.mp4");*/
+    const char* input[2]={0};
+    input[0]=intputName1;
+    input[1]=inputName2;
+    /*input[2]=inputName3;*/
+   /* input[3]=inputName4;
+    input[4]=inputName5;
+    input[5]=inputName6;*/
+    /*input[2]=inputName3;
+    input[3]=inputName4;*/
+
+    cancatVideo(input,2);
 
     env->ReleaseStringUTFChars(intputName1_, intputName1);
     env->ReleaseStringUTFChars(inputName2_, inputName2);
     env->ReleaseStringUTFChars(inputName3_, inputName3);
     env->ReleaseStringUTFChars(inputName4_, inputName4);
     env->ReleaseStringUTFChars(inputName5_, inputName5);
+    env->ReleaseStringUTFChars(inputName6_, inputName6);
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_dongnao_ffmpegdemo_MainActivity_natveMergeVideo2(JNIEnv *env, jobject instance,
+                                                          ) {
+
+    // TODO
+
 }
