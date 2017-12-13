@@ -52,7 +52,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\cmake.exe -HD:\srcCategory\ndk\FfmpegDemo\app -BD:\srcCategory\ndk\FfmpegDemo\app\.externalNativeBuild\cmake\debug\armeabi
+  command = D:\InstalledSoft\sdk\cmake\3.6.4111459\bin\cmake.exe -HE:\develop\pro_src_category\ndk\FfmpegDemo\app -BE:\develop\pro_src_category\ndk\FfmpegDemo\app\.externalNativeBuild\cmake\debug\armeabi
   description = Re-running CMake...
   generator = 1
 

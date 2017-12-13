@@ -38,8 +38,6 @@ void* play_callback(void* argc){
             video_call(yuvFrame);
         }
     }
-
-
 }
 void FFmpegVideo::put(AVPacket* packet){
     AVPacket* copy_pkt = (AVPacket *) av_mallocz(sizeof(AVPacket));
@@ -54,12 +52,13 @@ void FFmpegVideo::put(AVPacket* packet){
     pthread_mutex_unlock(&mutex);
 }
 void FFmpegVideo::get(AVPacket* packet){
-    LOGE("get外");
     pthread_mutex_lock(&mutex);
     while (is_playing){
         if(!queue.empty()){
-            av_packet_ref(packet, queue.front());
-                LOGE("0ref");
+            if(av_packet_ref(packet, queue.front())){
+                break;
+            }
+
             AVPacket *pkt = queue.front();
             queue.pop();
             av_free(pkt);

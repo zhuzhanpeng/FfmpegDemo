@@ -9,6 +9,7 @@ add_library( native-lib
              src/main/cpp/SplitVideo.cpp
              src/main/cpp/coffeecatch.c
              src/main/cpp/coffeejni.c
+             src/main/cpp/merge_video.cpp
 
               )
 

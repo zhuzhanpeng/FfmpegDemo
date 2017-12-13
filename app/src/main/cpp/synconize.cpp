@@ -1,3 +1,4 @@
+#include <jni.h>
 #include "synconize.h"
 #include "log.h"
 #include "FFmpegVideo.h"
@@ -7,7 +8,7 @@
 using namespace std;
 
 
-ANativeWindow *nativeWindow2;
+ANativeWindow*  nativeWindow;
 AVFormatContext *ifmt_ctx;
 AVCodecContext *codec_ctx;
 AVPacket *readPkt;
@@ -16,13 +17,13 @@ FFmpegVideo *video;
 
 void play_frame(AVFrame *rgb_frame) {
     LOGE("step9");
-    if (!nativeWindow2){
+    if (!nativeWindow){
         LOGE("step8")
         return;
     }
     ;
     ANativeWindow_Buffer aNativeWindow_buffer;
-    ANativeWindow_lock(nativeWindow2, &aNativeWindow_buffer, NULL);
+    ANativeWindow_lock(nativeWindow, &aNativeWindow_buffer, NULL);
     uint8_t *dst = (uint8_t *) aNativeWindow_buffer.bits;
     int dstStride = aNativeWindow_buffer.stride * 4;
 
@@ -32,7 +33,7 @@ void play_frame(AVFrame *rgb_frame) {
     for (; i < aNativeWindow_buffer.height; i++) {
         memcpy(dst + i * dstStride, src + i * srcStride, srcStride);
     }
-    ANativeWindow_unlockAndPost(nativeWindow2);
+    ANativeWindow_unlockAndPost(nativeWindow);
 
 }
 
@@ -61,7 +62,7 @@ void *fill_stack(void *path) {
             continue;
         }
         if (ifmt_ctx->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
-            ANativeWindow_setBuffersGeometry(nativeWindow2,
+            ANativeWindow_setBuffersGeometry(nativeWindow,
                                              pCodeCtx->width, pCodeCtx->height,
                                              WINDOW_FORMAT_RGBA_8888);
             video_id = i;
@@ -102,27 +103,26 @@ void *fill_stack(void *path) {
             audio->put(readPkt);
         }
     }
-
-
 }
-
-void *audioSynVideo(const char *path, ANativeWindow *mNw) {
-    COFFEE_TRY() {
-        nativeWindow2 = mNw;
-        video = new FFmpegVideo();
-        video->setPlayFrame(play_frame);
-        audio = new FFmpegMusic();
-        pthread_t pid;
-        pthread_create(&pid, NULL, fill_stack, (void *) path);
-        int *ret = 0;
-        pthread_join(pid, (void **) &ret);
-    } COFFEE_CATCH() {
-        const char *const message = coffeecatch_get_message();
-        LOGE("%s", message);
+void* ptr_run(void* argc){
+    for (int i = 0; i < 100; ++i) {
+        LOGE("add%d",i);
     }
-    COFFEE_END();
-
 }
+extern "C"
+JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
+        (JNIEnv *env, jobject instance, jstring path_,jobject surface) {
+    const char* path=env->GetStringUTFChars(path_,NULL);
+    nativeWindow= ANativeWindow_fromSurface(env, surface);
+    video = new FFmpegVideo();
+    video->setPlayFrame(play_frame);
+    audio = new FFmpegMusic();
+    pthread_t pid;
+    pthread_create(&pid, NULL, ptr_run, (void *) path);
+    LOGE("zzp");
+    env->ReleaseStringUTFChars(path_,path);
+}
+
 
 
 

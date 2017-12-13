@@ -36,9 +36,15 @@
        android:text="转码视频"
        />
    <Button
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:onClick="splitVideo"
+    android:text="拆分视频"
+    />
+   <Button
        android:layout_width="match_parent"
        android:layout_height="50dp"
-       android:onClick="splitVideo"
-       android:text="拆分视频"
+       android:onClick="mergeVideo"
+       android:text="合并视频"
        />
 </LinearLayout>

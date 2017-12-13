@@ -1,6 +1,5 @@
 #include <jni.h>
 #include <string>
-#include "synconize.h"
 #include "log.h"
 #include <pthread.h>
 #include "android/native_window_jni.h"
@@ -9,6 +8,7 @@
 #include <SLES/OpenSLES_Android.h>
 
 #include "SplitVideo.h"
+#include "merge_video.h"
 
 #ifndef _Included_com_dongnao_ffmpegdemo_MainActivity
 #define _Included_com_dongnao_ffmpegdemo_MainActivity
@@ -43,14 +43,14 @@ extern "C" {
 }
 
 // 当喇叭播放完声音时回调此方法
-void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context){
-    bufferSize=0;
+void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context) {
+    bufferSize = 0;
 //    取到音频数据了
 //    getPCM(&buffer, &bufferSize);
     if (NULL != buffer && 0 != bufferSize) {
 //        播放的关键地方
-        SLresult  lresult=(*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, buffer, bufferSize);
-        LOGE("正在播放%d ",lresult);
+        SLresult lresult = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, buffer, bufferSize);
+        LOGE("正在播放%d ", lresult);
     }
 }
 /*
@@ -172,13 +172,15 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
     //  配置信息设置
     SLDataLocator_AndroidSimpleBufferQueue android_queue = {SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE,
                                                             2};
-    SLDataFormat_PCM pcm={SL_DATAFORMAT_PCM,2,SL_SAMPLINGRATE_44_1,SL_PCMSAMPLEFORMAT_FIXED_16
-            ,SL_PCMSAMPLEFORMAT_FIXED_16,SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT,SL_BYTEORDER_LITTLEENDIAN};
+    SLDataFormat_PCM pcm = {SL_DATAFORMAT_PCM, 2, SL_SAMPLINGRATE_44_1, SL_PCMSAMPLEFORMAT_FIXED_16,
+                            SL_PCMSAMPLEFORMAT_FIXED_16,
+                            SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT,
+                            SL_BYTEORDER_LITTLEENDIAN};
     //   新建一个数据源 将上述配置信息放到这个数据源中
     SLDataSource slDataSource = {&android_queue, &pcm};
     //    设置混音器
     SLDataLocator_OutputMix slDataLocator_outputMix = {SL_DATALOCATOR_OUTPUTMIX, outputMix};
-    SLDataSink dataSink={&slDataLocator_outputMix,NULL};
+    SLDataSink dataSink = {&slDataLocator_outputMix, NULL};
 
     //创建Recorder需要 RECORD_AUDIO 权限
 //    SLInterfaceID slInterfaceID[2]={SL_IID_ANDROIDSIMPLEBUFFERQUEUE,SL_IID_ANDROIDCONFIGURATION};
@@ -190,21 +192,22 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
     const SLboolean req[3] = {SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE,
             /*SL_BOOLEAN_TRUE,*/ SL_BOOLEAN_TRUE};
 
-    int reslut=SL_RESULT_SUCCESS==sLresult;
+    int reslut = SL_RESULT_SUCCESS == sLresult;
 
-    sLresult=(*engineInterface)->CreateAudioPlayer(engineInterface,&bqPlayerObject,&slDataSource,
-    &dataSink,3,ids,req);
-    (*bqPlayerObject)->Realize(bqPlayerObject,SL_BOOLEAN_FALSE);
-    (*bqPlayerObject)->GetInterface(bqPlayerObject,SL_IID_PLAY,&bqPlayerPlay);
+    sLresult = (*engineInterface)->CreateAudioPlayer(engineInterface, &bqPlayerObject,
+                                                     &slDataSource,
+                                                     &dataSink, 3, ids, req);
+    (*bqPlayerObject)->Realize(bqPlayerObject, SL_BOOLEAN_FALSE);
+    (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_PLAY, &bqPlayerPlay);
     //注册回调缓冲区，获取缓冲队列借口
-    (*bqPlayerObject)->GetInterface(bqPlayerObject,SL_IID_BUFFERQUEUE,
-    &bqPlayerBufferQueue);
+    (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_BUFFERQUEUE,
+                                    &bqPlayerBufferQueue);
 
-    (*bqPlayerBufferQueue)->RegisterCallback(bqPlayerBufferQueue,bqPlayerCallback,NULL);
-    (*bqPlayerObject)->GetInterface(bqPlayerObject,SL_IID_VOLUME,&bqPlayerVolume);
+    (*bqPlayerBufferQueue)->RegisterCallback(bqPlayerBufferQueue, bqPlayerCallback, NULL);
+    (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_VOLUME, &bqPlayerVolume);
 
-    (*bqPlayerPlay)->SetPlayState(bqPlayerPlay,SL_PLAYSTATE_PLAYING);
-    bqPlayerCallback(bqPlayerBufferQueue,NULL);
+    (*bqPlayerPlay)->SetPlayState(bqPlayerPlay, SL_PLAYSTATE_PLAYING);
+    bqPlayerCallback(bqPlayerBufferQueue, NULL);
 
     env->ReleaseStringUTFChars(path_, path);
 }
@@ -214,16 +217,8 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_playNativeAudio
  * Method:    syncronize
  * Signature: (Ljava/lang/String;)V
  */
-extern "C"
-JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSyncronize
-        (JNIEnv *env, jobject instance, jstring path_,jobject surface) {
-    const char* path=env->GetStringUTFChars(path_,NULL);
-    ANativeWindow* nativeWindow= ANativeWindow_fromSurface(env, surface);
-    audioSynVideo(path,nativeWindow);
-    env->ReleaseStringUTFChars(path_,path);
-}
-static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag)
-{
+
+static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, const char *tag) {
     AVRational *time_base = &fmt_ctx->streams[pkt->stream_index]->time_base;
     printf("%s: pts:%s pts_time:%s dts:%s dts_time:%s duration:%s duration_time:%s stream_index:%d\n",
            tag,
@@ -232,24 +227,25 @@ static void log_packet(const AVFormatContext *fmt_ctx, const AVPacket *pkt, cons
            av_ts2str(pkt->duration), av_ts2timestr(pkt->duration, time_base),
            pkt->stream_index);
 }
+
 extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscoding
         (JNIEnv *env, jobject instance, jstring path_) {
-    const char* path=env->GetStringUTFChars(path_,NULL);
+    const char *path = env->GetStringUTFChars(path_, NULL);
 
 
-    const char *in_filename="/sdcard/input.mp4";
+    const char *in_filename = "/sdcard/input.mp4";
     /*const char *in_filename=
             "http://img.paas.onairm.cn/8abcbfaad1e48708b94466e024e24629base?avvod/m3u8/s/640*960/vb/400k/autosave/1";*/
 //    const char* in_filename="http://joymedia.oss-cn-hangzhou.aliyuncs.com/joyMedia/live_id_41.m3u8";
-    const char *out_filename="/sdcard/m3u8.flv";
+    const char *out_filename = "/sdcard/m3u8.flv";
     AVOutputFormat *ofmt = NULL;
     //Input AVFormatContext and Output AVFormatContext
     AVFormatContext *ifmt_ctx = NULL, *ofmt_ctx = NULL;
     AVPacket pkt;
 
     int ret, i;
-    int frame_index=0;
+    int frame_index = 0;
 
     av_register_all();
     avformat_network_init();
@@ -259,14 +255,14 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
         goto end;
     }
     if ((ret = avformat_find_stream_info(ifmt_ctx, 0)) < 0) {
-        LOGE( "Failed to retrieve input stream information");
+        LOGE("Failed to retrieve input stream information");
         goto end;
     }
     av_dump_format(ifmt_ctx, 0, in_filename, 0);
     //Output
     avformat_alloc_output_context2(&ofmt_ctx, NULL, NULL, out_filename);
     if (!ofmt_ctx) {
-        LOGE( "Could not create output context\n");
+        LOGE("Could not create output context\n");
         ret = AVERROR_UNKNOWN;
         goto end;
     }
@@ -276,13 +272,13 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
         AVStream *in_stream = ifmt_ctx->streams[i];
         AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
         if (!out_stream) {
-            LOGE( "Failed allocating output stream\n");
+            LOGE("Failed allocating output stream\n");
             ret = AVERROR_UNKNOWN;
             goto end;
         }
         //Copy the settings of AVCodecContext
         if (avcodec_copy_context(out_stream->codec, in_stream->codec) < 0) {
-            LOGE( "Failed to copy context from input to output stream codec context\n");
+            LOGE("Failed to copy context from input to output stream codec context\n");
             goto end;
         }
         out_stream->codec->codec_tag = 0;
@@ -295,13 +291,13 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
     if (!(ofmt->flags & AVFMT_NOFILE)) {
         ret = avio_open(&ofmt_ctx->pb, out_filename, AVIO_FLAG_WRITE);
         if (ret < 0) {
-            LOGE( "Could not open output file '%s'", out_filename);
+            LOGE("Could not open output file '%s'", out_filename);
             goto end;
         }
     }
     //Write file header
     if (avformat_write_header(ofmt_ctx, NULL) < 0) {
-        LOGE( "Error occurred when opening output file\n");
+        LOGE("Error occurred when opening output file\n");
         goto end;
     }
 
@@ -311,20 +307,22 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
         ret = av_read_frame(ifmt_ctx, &pkt);
         if (ret < 0)
             break;
-        in_stream  = ifmt_ctx->streams[pkt.stream_index];
+        in_stream = ifmt_ctx->streams[pkt.stream_index];
         out_stream = ofmt_ctx->streams[pkt.stream_index];
 
         //Convert PTS/DTS
-        pkt.pts = av_rescale_q_rnd(pkt.pts, in_stream->time_base, out_stream->time_base, (AVRounding)(AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX));
-        pkt.dts = av_rescale_q_rnd(pkt.dts, in_stream->time_base, out_stream->time_base, (AVRounding)(AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX));
+        pkt.pts = av_rescale_q_rnd(pkt.pts, in_stream->time_base, out_stream->time_base,
+                                   (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
+        pkt.dts = av_rescale_q_rnd(pkt.dts, in_stream->time_base, out_stream->time_base,
+                                   (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
         pkt.duration = av_rescale_q(pkt.duration, in_stream->time_base, out_stream->time_base);
         pkt.pos = -1;
         //Write
         if (av_interleaved_write_frame(ofmt_ctx, &pkt) < 0) {
-            LOGE( "Error muxing packet\n");
+            LOGE("Error muxing packet\n");
             break;
         }
-        LOGE("Write %8d frames to output file\n",frame_index);
+        LOGE("Write %8d frames to output file\n", frame_index);
         av_free_packet(&pkt);
         frame_index++;
     }
@@ -337,12 +335,37 @@ JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeTranscodin
         avio_close(ofmt_ctx->pb);
     avformat_free_context(ofmt_ctx);
 
-    env->ReleaseStringUTFChars(path_,path);
+    env->ReleaseStringUTFChars(path_, path);
 }
 extern "C"
 JNIEXPORT void JNICALL Java_com_dongnao_ffmpegdemo_MainActivity_nativeSplitVideo
         (JNIEnv *env, jobject instance, jstring path_) {
-    executeSplitOneClip(60,100);
+    executeSplitOneClip(60, 100);
 }
 
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_dongnao_ffmpegdemo_MainActivity_natveMergeVideo(JNIEnv *env, jobject instance,
+                                                         jstring intputName1_,
+                                                         jstring inputName2_,
+                                                         jstring inputName3_,
+                                                         jstring inputName4_,
+                                                         jstring inputName5_) {
+    const char *intputName1 = env->GetStringUTFChars(intputName1_, 0);
+    const char *inputName2 = env->GetStringUTFChars(inputName2_, 0);
+    const char *inputName3 = env->GetStringUTFChars(inputName3_, 0);
+    const char *inputName4 = env->GetStringUTFChars(inputName4_, 0);
+    const char *inputName5 = env->GetStringUTFChars(inputName5_, 0);
+
+    merge(intputName1, inputName2, "/sdcard/merge1.mp4");
+    merge("/sdcard/merge1.mp4", inputName3, "/sdcard/merge2.mp4");
+    merge("/sdcard/merge2.mp4", inputName4, "/sdcard/merge3.mp4");
+    merge("/sdcard/merge3.mp4", inputName5, "/sdcard/merge4.mp4");
+
+    env->ReleaseStringUTFChars(intputName1_, intputName1);
+    env->ReleaseStringUTFChars(inputName2_, inputName2);
+    env->ReleaseStringUTFChars(inputName3_, inputName3);
+    env->ReleaseStringUTFChars(inputName4_, inputName4);
+    env->ReleaseStringUTFChars(inputName5_, inputName5);
+}
